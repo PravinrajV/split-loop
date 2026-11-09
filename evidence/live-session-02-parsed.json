@@ -1,0 +1,283 @@
+{
+  "disclaimer": "Not a medical device; not certified; not a patient-treatment product.",
+  "source": "proof/demo-v2/raw/live-session-02.serial.log",
+  "runs": [
+    {
+      "run_id": "live-01-legal",
+      "kind": "planner",
+      "fault": "none",
+      "mode": 0,
+      "finish": "DOCK",
+      "cycle_s": 2.960191256,
+      "samples": 326,
+      "result": {
+        "kind": "planner",
+        "fault": "none",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 1,
+        "cycle_s": 2.960191256,
+        "samples": 326,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 1,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 326,
+          "p50": 326720,
+          "p95": 512999,
+          "p99": 733360,
+          "max": 2474835
+        },
+        "command_completion_ns": {
+          "sample_count": 326,
+          "p50": 267868,
+          "p95": 532955,
+          "p99": 912419,
+          "max": 3308103
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 326,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 326,
+          "p50": 3126837,
+          "p95": 6040877,
+          "p99": 16253664,
+          "max": 36162187
+        },
+        "miss_count": 0,
+        "run_length_s": 3.2599155649999996
+      },
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1400.0,
+      "reasons_observed": [
+        "ACCEPT"
+      ],
+      "blocking_ask_ticks": [],
+      "collision_samples": 0,
+      "jerk_breach_samples": 0
+    },
+    {
+      "run_id": "live-02-advisor-kill",
+      "kind": "planner",
+      "fault": "none",
+      "mode": 0,
+      "finish": "DOCK",
+      "cycle_s": 2.960044521,
+      "samples": 326,
+      "result": {
+        "kind": "planner",
+        "fault": "none",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 1,
+        "cycle_s": 2.960044521,
+        "samples": 326,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 1,
+        "restarts": 1,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 326,
+          "p50": 474715,
+          "p95": 895913,
+          "p99": 3086937,
+          "max": 9164311
+        },
+        "command_completion_ns": {
+          "sample_count": 326,
+          "p50": 221548,
+          "p95": 340927,
+          "p99": 519187,
+          "max": 1259677
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 326,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 326,
+          "p50": 3505294,
+          "p95": 6184187,
+          "p99": 11712382,
+          "max": 20938198
+        },
+        "miss_count": 0,
+        "run_length_s": 3.2598965449999997
+      },
+      "max_abs_velocity": 123.015251972,
+      "max_abs_acceleration": 313.446104707,
+      "max_abs_jerk": 1400.0,
+      "reasons_observed": [
+        "ACCEPT"
+      ],
+      "blocking_ask_ticks": [],
+      "collision_samples": 0,
+      "jerk_breach_samples": 0
+    },
+    {
+      "run_id": "live-03-isolated-hang",
+      "kind": "planner",
+      "fault": "hang",
+      "mode": 0,
+      "finish": "HOME",
+      "cycle_s": null,
+      "samples": 424,
+      "result": {
+        "kind": "planner",
+        "fault": "hang",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 2,
+        "cycle_s": -1.0,
+        "samples": 424,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 129,
+        "restarts": 1,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 424,
+          "p50": 362599,
+          "p95": 649425,
+          "p99": 4883012,
+          "max": 9025778
+        },
+        "command_completion_ns": {
+          "sample_count": 424,
+          "p50": 236349,
+          "p95": 332285,
+          "p99": 708623,
+          "max": 8718040
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 424,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 77,
+          "p50": 4025572,
+          "p95": 55064464,
+          "p99": 85122984,
+          "max": 85122984
+        },
+        "miss_count": 0,
+        "run_length_s": 4.239848872
+      },
+      "max_abs_velocity": 122.987327508,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1336.006132379,
+      "reasons_observed": [
+        "ACCEPT",
+        "FALLBACK_NO_ADVICE"
+      ],
+      "blocking_ask_ticks": [],
+      "collision_samples": 0,
+      "jerk_breach_samples": 0
+    },
+    {
+      "run_id": "live-04-naive-hang",
+      "kind": "planner",
+      "fault": "hang",
+      "mode": 1,
+      "finish": "HOME",
+      "cycle_s": null,
+      "samples": 428,
+      "result": {
+        "kind": "planner",
+        "fault": "hang",
+        "mode": 1,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 2,
+        "cycle_s": -1.0,
+        "samples": 428,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 21,
+        "reasons": 129,
+        "restarts": 1,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 428,
+          "p50": 542721,
+          "p95": 4283722,
+          "p99": 148918824,
+          "max": 188427786
+        },
+        "command_completion_ns": {
+          "sample_count": 428,
+          "p50": 227078,
+          "p95": 348949,
+          "p99": 591427,
+          "max": 197734571
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 428,
+          "p50": 0,
+          "p95": 103812,
+          "p99": 140084,
+          "max": 190876045
+        },
+        "advice_age_ns": {
+          "sample_count": 69,
+          "p50": 4059941,
+          "p95": 6217003,
+          "p99": 6396867,
+          "max": 6396867
+        },
+        "miss_count": 21,
+        "run_length_s": 4.279975929
+      },
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "reasons_observed": [
+        "ACCEPT",
+        "FALLBACK_NO_ADVICE"
+      ],
+      "blocking_ask_ticks": [
+        69
+      ],
+      "collision_samples": 0,
+      "jerk_breach_samples": 0
+    }
+  ],
+  "policy": [
+    "POLICY_OPEN,control,fd=3,errno=0,mode=0666,fstat_ok=1,message=OPEN_ALLOWED,Not a medical device; not certified; not a patient-treatment product.",
+    "POLICY_OPEN,advisor,fd=-1,errno=1,mode=0000,fstat_ok=0,message=Operation not permitted,Not a medical device; not certified; not a patient-treatment product.",
+    "POLICY_RESULT,control_ok=1,advisor_denied=1,permissions=control_fstat,Not a medical device; not certified; not a patient-treatment product."
+  ]
+}

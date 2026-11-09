@@ -1,0 +1,4 @@
+# Paths resolved by scripts/build-image.sh after native qcc build.
+# mkqnximage copies these into /proc/boot on the IFS.
+sl=PLACEHOLDER_APP_SL
+sl-baseline=PLACEHOLDER_APP_SL_BASELINE

@@ -1,0 +1,256 @@
+{
+  "disclaimer": "Not a medical device; not certified; not a patient-treatment product.",
+  "source": "acceptance.log",
+  "pass": true,
+  "cases": [
+    {
+      "id": "acceptance-r00-baseline-none-0",
+      "expected": "DOCK with finite cycle and zero breaches",
+      "observed": {
+        "finish": "DOCK",
+        "cycle_s": 7.990243749,
+        "reasons": [
+          "ACCEPT"
+        ],
+        "miss_count": 0,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r01-planner-none-0",
+      "expected": "DOCK with finite cycle and zero breaches",
+      "observed": {
+        "finish": "DOCK",
+        "cycle_s": 2.959989901,
+        "reasons": [
+          "ACCEPT"
+        ],
+        "miss_count": 0,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r02-planner-keepout-0",
+      "expected": "HOME/DOCK, zero breaches, REJECT_KEEP_OUT",
+      "observed": {
+        "finish": "HOME",
+        "cycle_s": null,
+        "reasons": [
+          "ACCEPT",
+          "FALLBACK_NO_ADVICE",
+          "REJECT_KEEP_OUT"
+        ],
+        "miss_count": 0,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r03-planner-jerk-0",
+      "expected": "HOME/DOCK, zero breaches, CLAMP_JERK",
+      "observed": {
+        "finish": "HOME",
+        "cycle_s": null,
+        "reasons": [
+          "ACCEPT",
+          "CLAMP_JERK",
+          "FALLBACK_NO_ADVICE"
+        ],
+        "miss_count": 0,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r04-planner-stale-0",
+      "expected": "HOME/DOCK, zero breaches, REJECT_STALE",
+      "observed": {
+        "finish": "HOME",
+        "cycle_s": null,
+        "reasons": [
+          "ACCEPT",
+          "FALLBACK_NO_ADVICE",
+          "REJECT_STALE"
+        ],
+        "miss_count": 1,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r05-planner-replay-0",
+      "expected": "HOME/DOCK, zero breaches, REJECT_REPLAY",
+      "observed": {
+        "finish": "HOME",
+        "cycle_s": null,
+        "reasons": [
+          "ACCEPT",
+          "FALLBACK_NO_ADVICE",
+          "REJECT_REPLAY"
+        ],
+        "miss_count": 0,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r06-planner-expired-0",
+      "expected": "HOME/DOCK, zero breaches, REJECT_EXPIRED",
+      "observed": {
+        "finish": "HOME",
+        "cycle_s": null,
+        "reasons": [
+          "ACCEPT",
+          "FALLBACK_NO_ADVICE",
+          "REJECT_EXPIRED"
+        ],
+        "miss_count": 0,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r07-planner-malformed-0",
+      "expected": "HOME/DOCK, zero breaches, REJECT_MALFORMED",
+      "observed": {
+        "finish": "HOME",
+        "cycle_s": null,
+        "reasons": [
+          "ACCEPT",
+          "FALLBACK_NO_ADVICE",
+          "REJECT_MALFORMED"
+        ],
+        "miss_count": 0,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r08-planner-overload-0",
+      "expected": "HOME/DOCK, zero breaches, FALLBACK_NO_ADVICE",
+      "observed": {
+        "finish": "HOME",
+        "cycle_s": null,
+        "reasons": [
+          "ACCEPT",
+          "FALLBACK_NO_ADVICE"
+        ],
+        "miss_count": 0,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r09-planner-hang-0",
+      "expected": "HOME/DOCK, zero breaches, FALLBACK_NO_ADVICE",
+      "observed": {
+        "finish": "HOME",
+        "cycle_s": null,
+        "reasons": [
+          "ACCEPT",
+          "FALLBACK_NO_ADVICE"
+        ],
+        "miss_count": 0,
+        "restarts": 1
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r10-planner-crash-0",
+      "expected": "HOME/DOCK, zero breaches",
+      "observed": {
+        "finish": "DOCK",
+        "cycle_s": 2.959996718,
+        "reasons": [
+          "ACCEPT"
+        ],
+        "miss_count": 0,
+        "restarts": 1
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r11-planner-hang-1",
+      "expected": "HOME/DOCK, zero breaches, FALLBACK_NO_ADVICE; synchronous ask >=10ms and at least one missed period",
+      "observed": {
+        "finish": "HOME",
+        "cycle_s": null,
+        "reasons": [
+          "ACCEPT",
+          "FALLBACK_NO_ADVICE"
+        ],
+        "miss_count": 19,
+        "restarts": 1
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r12-baseline-none-0",
+      "expected": "DOCK with finite cycle and zero breaches",
+      "observed": {
+        "finish": "DOCK",
+        "cycle_s": 6.239858396,
+        "reasons": [
+          "ACCEPT"
+        ],
+        "miss_count": 0,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r13-planner-none-0",
+      "expected": "DOCK with finite cycle and zero breaches",
+      "observed": {
+        "finish": "DOCK",
+        "cycle_s": 2.159923041,
+        "reasons": [
+          "ACCEPT"
+        ],
+        "miss_count": 0,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r14-baseline-none-0",
+      "expected": "DOCK with finite cycle and zero breaches",
+      "observed": {
+        "finish": "DOCK",
+        "cycle_s": 5.359851664,
+        "reasons": [
+          "ACCEPT"
+        ],
+        "miss_count": 1,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "acceptance-r15-planner-none-0",
+      "expected": "DOCK with finite cycle and zero breaches",
+      "observed": {
+        "finish": "DOCK",
+        "cycle_s": 1.869950967,
+        "reasons": [
+          "ACCEPT"
+        ],
+        "miss_count": 0,
+        "restarts": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "OS-device-denial",
+      "expected": "control open succeeds with mode0666; advisor denied by enforcing OS policy",
+      "observed": [
+        "POLICY_OPEN,control,fd=3,errno=0,mode=0666,fstat_ok=1,message=OPEN_ALLOWED,Not a medical device; not certified; not a patient-treatment product.",
+        "POLICY_OPEN,advisor,fd=-1,errno=1,mode=0000,fstat_ok=0,message=Operation not permitted,Not a medical device; not certified; not a patient-treatment product.",
+        "POLICY_RESULT,control_ok=1,advisor_denied=1,permissions=control_fstat,Not a medical device; not certified; not a patient-treatment product."
+      ],
+      "pass": true
+    }
+  ]
+}

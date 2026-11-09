@@ -1,0 +1,7 @@
+{
+  "disclaimer": "Not a medical device; not certified; not a patient-treatment product.",
+  "start_slot": 1,
+  "occupied": [0, 2, 3],
+  "dock": [390, 250],
+  "period_ms": 10
+}

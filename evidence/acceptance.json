@@ -1,0 +1,1453 @@
+{
+  "disclaimer": "Not a medical device; not certified; not a patient-treatment product.",
+  "generated_at_est": "2026-11-08T01:00:32.712148-05:00",
+  "source_log": "acceptance.log",
+  "source_sha256": "bf69654eb920ffb0dd1922593183e8de3c6cdb6c36f0e99d0c9f9f72e3c15621",
+  "note": "Sample arrays stripped for repo size. Full raw rows are in evidence/raw/*.csv (7,029 samples). QEMU TCG only; not WCET.",
+  "setup": {
+    "qemu": "10.0.13 (Debian)",
+    "acceleration": "TCG -cpu max",
+    "vcpus": 1,
+    "ram_mib": 512,
+    "period_ms": 10,
+    "qnx": "8.0.0; exact boot build in source_log",
+    "host": "Debian 13 (not a supported QNX host)",
+    "plant": "fixed 10ms second-order integration, mass=1, viscous coefficient=1.2; real CLOCK_MONOTONIC cycle clock",
+    "sensor_noise": "deterministic sinusoid: position amplitude .005mm, velocity .002mm/s; separately recorded from truth",
+    "timing_scope": "QEMU observations only, not WCET and not a hardware real-time guarantee",
+    "percentiles": "nearest rank",
+    "command_completion": "actual wake to final joint read, includes synchronous ask when naive",
+    "miss_definition": "wake lateness >=10ms OR command completed after next nominal deadline",
+    "telemetry": "4096 fixed records, no blocking IO on controller output; separate lossy 10Hz presentation process",
+    "baseline": "Safe-via sequential jerk-limited trapezoid; v80 a200 j600, Y180 then X390 then Y250",
+    "image": "images/split-loop/output/ifs.bin + disk-qemu",
+    "artifact_capture": "During acceptance run, before any subsequent native build; immutable IFS and native binary unchanged",
+    "hashes": {
+      "design/split-loop.md": "e4501db7823c66514e1cdaf2735294787ac35593a75e119dc4b743198bcec42c",
+      "app/motion.c": "d65ea3e0b9e3eb78fecf93360b8bbe4f92c9dee0ddbda0434bc969851770d9d7",
+      "app/sl": "f28bf5a7eeb4f6876016825f7460f2778b13f8b769c8d9e35dec4c2a0cccca71",
+      "images/split-loop-policy.txt": "5e0f3029701b3eafc9f9155ec95ad55fe0b39180582a2c56ad581f8d171cd2cf",
+      "images/split-loop/output/ifs.bin": "fc3e66de7b53cbe0ba37d5ae8a40df207a7ff9d3d0e119911e3a3e67203408fc"
+    }
+  },
+  "runs": [
+    {
+      "kind": "baseline",
+      "fault": "none",
+      "mode": 0,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "baseline",
+        "fault": "none",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 1,
+        "cycle_s": 7.990243749,
+        "samples": 836,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 1,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r00-baseline-none-0",
+      "cycle_s": 7.990243749,
+      "finish": "DOCK",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 836,
+          "p50": 948008,
+          "p95": 1072880,
+          "p99": 1151276,
+          "max": 9648342
+        },
+        "command_completion_ns": {
+          "sample_count": 836,
+          "p50": 183980,
+          "p95": 212371,
+          "p99": 272906,
+          "max": 1771936
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 836,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 0,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null
+        },
+        "miss_count": 0,
+        "run_length_s": 8.359882219
+      },
+      "reasons_observed": [
+        "ACCEPT"
+      ],
+      "max_abs_velocity": 80.0,
+      "max_abs_acceleration": 200.0,
+      "max_abs_jerk": 600.0,
+      "matrix": {
+        "expected": "DOCK with finite cycle and zero breaches",
+        "observed": {
+          "finish": "DOCK",
+          "cycle_s": 7.990243749,
+          "reasons": [
+            "ACCEPT"
+          ],
+          "miss_count": 0,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r00-baseline-none-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "none",
+      "mode": 0,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "planner",
+        "fault": "none",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 1,
+        "cycle_s": 2.959989901,
+        "samples": 326,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 1,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r01-planner-none-0",
+      "cycle_s": 2.959989901,
+      "finish": "DOCK",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 326,
+          "p50": 327171,
+          "p95": 396891,
+          "p99": 527175,
+          "max": 583891
+        },
+        "command_completion_ns": {
+          "sample_count": 326,
+          "p50": 175179,
+          "p95": 204009,
+          "p99": 225472,
+          "max": 525458
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 326,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 326,
+          "p50": 3001536,
+          "p95": 5790386,
+          "p99": 6150774,
+          "max": 8704686
+        },
+        "miss_count": 0,
+        "run_length_s": 3.259816634
+      },
+      "reasons_observed": [
+        "ACCEPT"
+      ],
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "matrix": {
+        "expected": "DOCK with finite cycle and zero breaches",
+        "observed": {
+          "finish": "DOCK",
+          "cycle_s": 2.959989901,
+          "reasons": [
+            "ACCEPT"
+          ],
+          "miss_count": 0,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r01-planner-none-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "keepout",
+      "mode": 0,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "planner",
+        "fault": "keepout",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 2,
+        "cycle_s": -1.0,
+        "samples": 428,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 133,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r02-planner-keepout-0",
+      "cycle_s": null,
+      "finish": "HOME",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 428,
+          "p50": 1033789,
+          "p95": 1139584,
+          "p99": 1227797,
+          "max": 1319549
+        },
+        "command_completion_ns": {
+          "sample_count": 428,
+          "p50": 166662,
+          "p95": 191219,
+          "p99": 225632,
+          "max": 7321232
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 428,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 70,
+          "p50": 2983485,
+          "p95": 5158605,
+          "p99": 8983913,
+          "max": 8983913
+        },
+        "miss_count": 0,
+        "run_length_s": 4.28021134
+      },
+      "reasons_observed": [
+        "ACCEPT",
+        "FALLBACK_NO_ADVICE",
+        "REJECT_KEEP_OUT"
+      ],
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "matrix": {
+        "expected": "HOME/DOCK, zero breaches, REJECT_KEEP_OUT",
+        "observed": {
+          "finish": "HOME",
+          "cycle_s": null,
+          "reasons": [
+            "ACCEPT",
+            "FALLBACK_NO_ADVICE",
+            "REJECT_KEEP_OUT"
+          ],
+          "miss_count": 0,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r02-planner-keepout-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "jerk",
+      "mode": 0,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "planner",
+        "fault": "jerk",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 2,
+        "cycle_s": -1.0,
+        "samples": 428,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 131,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r03-planner-jerk-0",
+      "cycle_s": null,
+      "finish": "HOME",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 428,
+          "p50": 1013852,
+          "p95": 1118381,
+          "p99": 1212460,
+          "max": 1363530
+        },
+        "command_completion_ns": {
+          "sample_count": 428,
+          "p50": 166579,
+          "p95": 232438,
+          "p99": 246264,
+          "max": 5568938
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 428,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 70,
+          "p50": 3998184,
+          "p95": 6171227,
+          "p99": 7734820,
+          "max": 7734820
+        },
+        "miss_count": 0,
+        "run_length_s": 4.280110079
+      },
+      "reasons_observed": [
+        "ACCEPT",
+        "CLAMP_JERK",
+        "FALLBACK_NO_ADVICE"
+      ],
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "matrix": {
+        "expected": "HOME/DOCK, zero breaches, CLAMP_JERK",
+        "observed": {
+          "finish": "HOME",
+          "cycle_s": null,
+          "reasons": [
+            "ACCEPT",
+            "CLAMP_JERK",
+            "FALLBACK_NO_ADVICE"
+          ],
+          "miss_count": 0,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r03-planner-jerk-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "stale",
+      "mode": 0,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "planner",
+        "fault": "stale",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 2,
+        "cycle_s": -1.0,
+        "samples": 428,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 1,
+        "reasons": 137,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r04-planner-stale-0",
+      "cycle_s": null,
+      "finish": "HOME",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 428,
+          "p50": 732381,
+          "p95": 850260,
+          "p99": 916504,
+          "max": 9903973
+        },
+        "command_completion_ns": {
+          "sample_count": 428,
+          "p50": 164689,
+          "p95": 185466,
+          "p99": 218827,
+          "max": 5453005
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 428,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 70,
+          "p50": 3965988,
+          "p95": 6213884,
+          "p99": 205107869,
+          "max": 205107869
+        },
+        "miss_count": 1,
+        "run_length_s": 4.280012597
+      },
+      "reasons_observed": [
+        "ACCEPT",
+        "FALLBACK_NO_ADVICE",
+        "REJECT_STALE"
+      ],
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "matrix": {
+        "expected": "HOME/DOCK, zero breaches, REJECT_STALE",
+        "observed": {
+          "finish": "HOME",
+          "cycle_s": null,
+          "reasons": [
+            "ACCEPT",
+            "FALLBACK_NO_ADVICE",
+            "REJECT_STALE"
+          ],
+          "miss_count": 1,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r04-planner-stale-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "replay",
+      "mode": 0,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "planner",
+        "fault": "replay",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 2,
+        "cycle_s": -1.0,
+        "samples": 428,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 145,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r05-planner-replay-0",
+      "cycle_s": null,
+      "finish": "HOME",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 428,
+          "p50": 296723,
+          "p95": 422331,
+          "p99": 519941,
+          "max": 764307
+        },
+        "command_completion_ns": {
+          "sample_count": 428,
+          "p50": 167388,
+          "p95": 189776,
+          "p99": 368001,
+          "max": 5407707
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 428,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 70,
+          "p50": 3058639,
+          "p95": 5655620,
+          "p99": 8817983,
+          "max": 8817983
+        },
+        "miss_count": 0,
+        "run_length_s": 4.279785620999999
+      },
+      "reasons_observed": [
+        "ACCEPT",
+        "FALLBACK_NO_ADVICE",
+        "REJECT_REPLAY"
+      ],
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "matrix": {
+        "expected": "HOME/DOCK, zero breaches, REJECT_REPLAY",
+        "observed": {
+          "finish": "HOME",
+          "cycle_s": null,
+          "reasons": [
+            "ACCEPT",
+            "FALLBACK_NO_ADVICE",
+            "REJECT_REPLAY"
+          ],
+          "miss_count": 0,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r05-planner-replay-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "expired",
+      "mode": 0,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "planner",
+        "fault": "expired",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 2,
+        "cycle_s": -1.0,
+        "samples": 428,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 161,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r06-planner-expired-0",
+      "cycle_s": null,
+      "finish": "HOME",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 428,
+          "p50": 1142281,
+          "p95": 1239549,
+          "p99": 1343382,
+          "max": 2502509
+        },
+        "command_completion_ns": {
+          "sample_count": 428,
+          "p50": 167746,
+          "p95": 204704,
+          "p99": 246620,
+          "max": 5418289
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 428,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 70,
+          "p50": 3917571,
+          "p95": 6171390,
+          "p99": 25218110,
+          "max": 25218110
+        },
+        "miss_count": 0,
+        "run_length_s": 4.280163635
+      },
+      "reasons_observed": [
+        "ACCEPT",
+        "FALLBACK_NO_ADVICE",
+        "REJECT_EXPIRED"
+      ],
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "matrix": {
+        "expected": "HOME/DOCK, zero breaches, REJECT_EXPIRED",
+        "observed": {
+          "finish": "HOME",
+          "cycle_s": null,
+          "reasons": [
+            "ACCEPT",
+            "FALLBACK_NO_ADVICE",
+            "REJECT_EXPIRED"
+          ],
+          "miss_count": 0,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r06-planner-expired-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "malformed",
+      "mode": 0,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "planner",
+        "fault": "malformed",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 2,
+        "cycle_s": -1.0,
+        "samples": 428,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 193,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r07-planner-malformed-0",
+      "cycle_s": null,
+      "finish": "HOME",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 428,
+          "p50": 556991,
+          "p95": 672040,
+          "p99": 743047,
+          "max": 814421
+        },
+        "command_completion_ns": {
+          "sample_count": 428,
+          "p50": 168054,
+          "p95": 187903,
+          "p99": 230507,
+          "max": 6116365
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 428,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 70,
+          "p50": 3754848,
+          "p95": 6179154,
+          "p99": 6336890,
+          "max": 6336890
+        },
+        "miss_count": 0,
+        "run_length_s": 4.280037987
+      },
+      "reasons_observed": [
+        "ACCEPT",
+        "FALLBACK_NO_ADVICE",
+        "REJECT_MALFORMED"
+      ],
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "matrix": {
+        "expected": "HOME/DOCK, zero breaches, REJECT_MALFORMED",
+        "observed": {
+          "finish": "HOME",
+          "cycle_s": null,
+          "reasons": [
+            "ACCEPT",
+            "FALLBACK_NO_ADVICE",
+            "REJECT_MALFORMED"
+          ],
+          "miss_count": 0,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r07-planner-malformed-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "overload",
+      "mode": 0,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "planner",
+        "fault": "overload",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 2,
+        "cycle_s": -1.0,
+        "samples": 424,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 129,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r08-planner-overload-0",
+      "cycle_s": null,
+      "finish": "HOME",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 424,
+          "p50": 768260,
+          "p95": 957112,
+          "p99": 1111735,
+          "max": 2465709
+        },
+        "command_completion_ns": {
+          "sample_count": 424,
+          "p50": 116977,
+          "p95": 183810,
+          "p99": 215427,
+          "max": 5269600
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 424,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 77,
+          "p50": 3149718,
+          "p95": 52824547,
+          "p99": 82882906,
+          "max": 82882906
+        },
+        "miss_count": 0,
+        "run_length_s": 4.240036645
+      },
+      "reasons_observed": [
+        "ACCEPT",
+        "FALLBACK_NO_ADVICE"
+      ],
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "matrix": {
+        "expected": "HOME/DOCK, zero breaches, FALLBACK_NO_ADVICE",
+        "observed": {
+          "finish": "HOME",
+          "cycle_s": null,
+          "reasons": [
+            "ACCEPT",
+            "FALLBACK_NO_ADVICE"
+          ],
+          "miss_count": 0,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r08-planner-overload-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "hang",
+      "mode": 0,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "planner",
+        "fault": "hang",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 2,
+        "cycle_s": -1.0,
+        "samples": 424,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 129,
+        "restarts": 1,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r09-planner-hang-0",
+      "cycle_s": null,
+      "finish": "HOME",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 424,
+          "p50": 270407,
+          "p95": 368715,
+          "p99": 425294,
+          "max": 4655442
+        },
+        "command_completion_ns": {
+          "sample_count": 424,
+          "p50": 167624,
+          "p95": 198168,
+          "p99": 247864,
+          "max": 5289569
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 424,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 77,
+          "p50": 3032359,
+          "p95": 51112733,
+          "p99": 81086259,
+          "max": 81086259
+        },
+        "miss_count": 0,
+        "run_length_s": 4.239974778
+      },
+      "reasons_observed": [
+        "ACCEPT",
+        "FALLBACK_NO_ADVICE"
+      ],
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "matrix": {
+        "expected": "HOME/DOCK, zero breaches, FALLBACK_NO_ADVICE",
+        "observed": {
+          "finish": "HOME",
+          "cycle_s": null,
+          "reasons": [
+            "ACCEPT",
+            "FALLBACK_NO_ADVICE"
+          ],
+          "miss_count": 0,
+          "restarts": 1
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r09-planner-hang-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "crash",
+      "mode": 0,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "planner",
+        "fault": "crash",
+        "mode": 0,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 1,
+        "cycle_s": 2.959996718,
+        "samples": 326,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 1,
+        "restarts": 1,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r10-planner-crash-0",
+      "cycle_s": 2.959996718,
+      "finish": "DOCK",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 326,
+          "p50": 960891,
+          "p95": 1071140,
+          "p99": 1154679,
+          "max": 1312501
+        },
+        "command_completion_ns": {
+          "sample_count": 326,
+          "p50": 174505,
+          "p95": 196853,
+          "p99": 211430,
+          "max": 224264
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 326,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 326,
+          "p50": 3963681,
+          "p95": 6169175,
+          "p99": 6288582,
+          "max": 23714693
+        },
+        "miss_count": 0,
+        "run_length_s": 3.259980963
+      },
+      "reasons_observed": [
+        "ACCEPT"
+      ],
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "matrix": {
+        "expected": "HOME/DOCK, zero breaches",
+        "observed": {
+          "finish": "DOCK",
+          "cycle_s": 2.959996718,
+          "reasons": [
+            "ACCEPT"
+          ],
+          "miss_count": 0,
+          "restarts": 1
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r10-planner-crash-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "hang",
+      "mode": 1,
+      "slot": 0,
+      "occupied": 14,
+      "result": {
+        "kind": "planner",
+        "fault": "hang",
+        "mode": 1,
+        "slot": 0,
+        "occupied": 14,
+        "finish": 2,
+        "cycle_s": -1.0,
+        "samples": 428,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 19,
+        "reasons": 129,
+        "restarts": 1,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r11-planner-hang-1",
+      "cycle_s": null,
+      "finish": "HOME",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 428,
+          "p50": 1146268,
+          "p95": 1346535,
+          "p99": 143544320,
+          "max": 183159656
+        },
+        "command_completion_ns": {
+          "sample_count": 428,
+          "p50": 173796,
+          "p95": 239798,
+          "p99": 274678,
+          "max": 192142565
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 428,
+          "p50": 0,
+          "p95": 82578,
+          "p99": 92687,
+          "max": 186794698
+        },
+        "advice_age_ns": {
+          "sample_count": 69,
+          "p50": 3106221,
+          "p95": 6090045,
+          "p99": 8054626,
+          "max": 8054626
+        },
+        "miss_count": 19,
+        "run_length_s": 4.280223232
+      },
+      "reasons_observed": [
+        "ACCEPT",
+        "FALLBACK_NO_ADVICE"
+      ],
+      "max_abs_velocity": 122.982934138,
+      "max_abs_acceleration": 311.253506937,
+      "max_abs_jerk": 1276.99109988,
+      "matrix": {
+        "expected": "HOME/DOCK, zero breaches, FALLBACK_NO_ADVICE; synchronous ask >=10ms and at least one missed period",
+        "observed": {
+          "finish": "HOME",
+          "cycle_s": null,
+          "reasons": [
+            "ACCEPT",
+            "FALLBACK_NO_ADVICE"
+          ],
+          "miss_count": 19,
+          "restarts": 1
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r11-planner-hang-1.csv"
+    },
+    {
+      "kind": "baseline",
+      "fault": "none",
+      "mode": 0,
+      "slot": 2,
+      "occupied": 11,
+      "result": {
+        "kind": "baseline",
+        "fault": "none",
+        "mode": 0,
+        "slot": 2,
+        "occupied": 11,
+        "finish": 1,
+        "cycle_s": 6.239858396,
+        "samples": 661,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 1,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r12-baseline-none-0",
+      "cycle_s": 6.239858396,
+      "finish": "DOCK",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 661,
+          "p50": 881016,
+          "p95": 1029620,
+          "p99": 1133860,
+          "max": 5233735
+        },
+        "command_completion_ns": {
+          "sample_count": 661,
+          "p50": 189032,
+          "p95": 219182,
+          "p99": 277757,
+          "max": 580204
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 661,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 0,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null
+        },
+        "miss_count": 0,
+        "run_length_s": 6.609851483
+      },
+      "reasons_observed": [
+        "ACCEPT"
+      ],
+      "max_abs_velocity": 80.0,
+      "max_abs_acceleration": 200.0,
+      "max_abs_jerk": 600.0,
+      "matrix": {
+        "expected": "DOCK with finite cycle and zero breaches",
+        "observed": {
+          "finish": "DOCK",
+          "cycle_s": 6.239858396,
+          "reasons": [
+            "ACCEPT"
+          ],
+          "miss_count": 0,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r12-baseline-none-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "none",
+      "mode": 0,
+      "slot": 2,
+      "occupied": 11,
+      "result": {
+        "kind": "planner",
+        "fault": "none",
+        "mode": 0,
+        "slot": 2,
+        "occupied": 11,
+        "finish": 1,
+        "cycle_s": 2.159923041,
+        "samples": 246,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 1,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r13-planner-none-0",
+      "cycle_s": 2.159923041,
+      "finish": "DOCK",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 246,
+          "p50": 288498,
+          "p95": 398739,
+          "p99": 476280,
+          "max": 529955
+        },
+        "command_completion_ns": {
+          "sample_count": 246,
+          "p50": 177559,
+          "p95": 212678,
+          "p99": 234838,
+          "max": 249020
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 246,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 246,
+          "p50": 3895060,
+          "p95": 6129128,
+          "p99": 6300665,
+          "max": 8835119
+        },
+        "miss_count": 0,
+        "run_length_s": 2.459995726
+      },
+      "reasons_observed": [
+        "ACCEPT"
+      ],
+      "max_abs_velocity": 103.390433188,
+      "max_abs_acceleration": 261.657677094,
+      "max_abs_jerk": 1073.319919162,
+      "matrix": {
+        "expected": "DOCK with finite cycle and zero breaches",
+        "observed": {
+          "finish": "DOCK",
+          "cycle_s": 2.159923041,
+          "reasons": [
+            "ACCEPT"
+          ],
+          "miss_count": 0,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r13-planner-none-0.csv"
+    },
+    {
+      "kind": "baseline",
+      "fault": "none",
+      "mode": 0,
+      "slot": 3,
+      "occupied": 7,
+      "result": {
+        "kind": "baseline",
+        "fault": "none",
+        "mode": 0,
+        "slot": 3,
+        "occupied": 7,
+        "finish": 1,
+        "cycle_s": 5.359851664,
+        "samples": 573,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 1,
+        "reasons": 1,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r14-baseline-none-0",
+      "cycle_s": 5.359851664,
+      "finish": "DOCK",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 573,
+          "p50": 667136,
+          "p95": 801057,
+          "p99": 965691,
+          "max": 12555997
+        },
+        "command_completion_ns": {
+          "sample_count": 573,
+          "p50": 185574,
+          "p95": 219416,
+          "p99": 259998,
+          "max": 754811
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 573,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 0,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null
+        },
+        "miss_count": 1,
+        "run_length_s": 5.729972383
+      },
+      "reasons_observed": [
+        "ACCEPT"
+      ],
+      "max_abs_velocity": 80.0,
+      "max_abs_acceleration": 200.0,
+      "max_abs_jerk": 600.0,
+      "matrix": {
+        "expected": "DOCK with finite cycle and zero breaches",
+        "observed": {
+          "finish": "DOCK",
+          "cycle_s": 5.359851664,
+          "reasons": [
+            "ACCEPT"
+          ],
+          "miss_count": 1,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r14-baseline-none-0.csv"
+    },
+    {
+      "kind": "planner",
+      "fault": "none",
+      "mode": 0,
+      "slot": 3,
+      "occupied": 7,
+      "result": {
+        "kind": "planner",
+        "fault": "none",
+        "mode": 0,
+        "slot": 3,
+        "occupied": 7,
+        "finish": 1,
+        "cycle_s": 1.869950967,
+        "samples": 217,
+        "collision": 0,
+        "jerk_breach": 0,
+        "misses": 0,
+        "reasons": 1,
+        "restarts": 0,
+        "dropped": 0,
+        "fifo": 1
+      },
+      "id": "acceptance-r15-planner-none-0",
+      "cycle_s": 1.869950967,
+      "finish": "DOCK",
+      "timing": {
+        "wake_lateness_ns": {
+          "sample_count": 217,
+          "p50": 698386,
+          "p95": 768012,
+          "p99": 824735,
+          "max": 850711
+        },
+        "command_completion_ns": {
+          "sample_count": 217,
+          "p50": 180445,
+          "p95": 200477,
+          "p99": 208965,
+          "max": 257488
+        },
+        "synchronous_ask_ns": {
+          "sample_count": 217,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "advice_age_ns": {
+          "sample_count": 217,
+          "p50": 3096269,
+          "p95": 6050587,
+          "p99": 6221645,
+          "max": 6237876
+        },
+        "miss_count": 0,
+        "run_length_s": 2.1700479899999996
+      },
+      "reasons_observed": [
+        "ACCEPT"
+      ],
+      "max_abs_velocity": 124.316037453,
+      "max_abs_acceleration": 314.630565086,
+      "max_abs_jerk": 1290.591911983,
+      "matrix": {
+        "expected": "DOCK with finite cycle and zero breaches",
+        "observed": {
+          "finish": "DOCK",
+          "cycle_s": 1.869950967,
+          "reasons": [
+            "ACCEPT"
+          ],
+          "miss_count": 0,
+          "restarts": 0
+        },
+        "pass": true
+      },
+      "raw_csv": "acceptance-r15-planner-none-0.csv"
+    }
+  ],
+  "comparisons": [
+    {
+      "run_id": "acceptance-r01-planner-none-0",
+      "baseline_id": "acceptance-r00-baseline-none-0",
+      "baseline_s": 7.990243749,
+      "planner_s": 2.959989901,
+      "improvement_percent": 62.95494863507198,
+      "legal_cycle_time_win": true
+    },
+    {
+      "run_id": "acceptance-r02-planner-keepout-0",
+      "baseline_id": "acceptance-r00-baseline-none-0",
+      "baseline_s": 7.990243749,
+      "planner_s": null,
+      "improvement_percent": null,
+      "legal_cycle_time_win": false
+    },
+    {
+      "run_id": "acceptance-r03-planner-jerk-0",
+      "baseline_id": "acceptance-r00-baseline-none-0",
+      "baseline_s": 7.990243749,
+      "planner_s": null,
+      "improvement_percent": null,
+      "legal_cycle_time_win": false
+    },
+    {
+      "run_id": "acceptance-r04-planner-stale-0",
+      "baseline_id": "acceptance-r00-baseline-none-0",
+      "baseline_s": 7.990243749,
+      "planner_s": null,
+      "improvement_percent": null,
+      "legal_cycle_time_win": false
+    },
+    {
+      "run_id": "acceptance-r05-planner-replay-0",
+      "baseline_id": "acceptance-r00-baseline-none-0",
+      "baseline_s": 7.990243749,
+      "planner_s": null,
+      "improvement_percent": null,
+      "legal_cycle_time_win": false
+    },
+    {
+      "run_id": "acceptance-r06-planner-expired-0",
+      "baseline_id": "acceptance-r00-baseline-none-0",
+      "baseline_s": 7.990243749,
+      "planner_s": null,
+      "improvement_percent": null,
+      "legal_cycle_time_win": false
+    },
+    {
+      "run_id": "acceptance-r07-planner-malformed-0",
+      "baseline_id": "acceptance-r00-baseline-none-0",
+      "baseline_s": 7.990243749,
+      "planner_s": null,
+      "improvement_percent": null,
+      "legal_cycle_time_win": false
+    },
+    {
+      "run_id": "acceptance-r08-planner-overload-0",
+      "baseline_id": "acceptance-r00-baseline-none-0",
+      "baseline_s": 7.990243749,
+      "planner_s": null,
+      "improvement_percent": null,
+      "legal_cycle_time_win": false
+    },
+    {
+      "run_id": "acceptance-r09-planner-hang-0",
+      "baseline_id": "acceptance-r00-baseline-none-0",
+      "baseline_s": 7.990243749,
+      "planner_s": null,
+      "improvement_percent": null,
+      "legal_cycle_time_win": false
+    },
+    {
+      "run_id": "acceptance-r10-planner-crash-0",
+      "baseline_id": "acceptance-r00-baseline-none-0",
+      "baseline_s": 7.990243749,
+      "planner_s": 2.959996718,
+      "improvement_percent": 62.95486331852578,
+      "legal_cycle_time_win": true
+    },
+    {
+      "run_id": "acceptance-r11-planner-hang-1",
+      "baseline_id": "acceptance-r00-baseline-none-0",
+      "baseline_s": 7.990243749,
+      "planner_s": null,
+      "improvement_percent": null,
+      "legal_cycle_time_win": false
+    },
+    {
+      "run_id": "acceptance-r13-planner-none-0",
+      "baseline_id": "acceptance-r12-baseline-none-0",
+      "baseline_s": 6.239858396,
+      "planner_s": 2.159923041,
+      "improvement_percent": 65.3850631869371,
+      "legal_cycle_time_win": true
+    },
+    {
+      "run_id": "acceptance-r15-planner-none-0",
+      "baseline_id": "acceptance-r14-baseline-none-0",
+      "baseline_s": 5.359851664,
+      "planner_s": 1.869950967,
+      "improvement_percent": 65.11188957784559,
+      "legal_cycle_time_win": true
+    }
+  ],
+  "policy": {
+    "pass": true,
+    "evidence": [
+      "POLICY_OPEN,control,fd=3,errno=0,mode=0666,fstat_ok=1,message=OPEN_ALLOWED,Not a medical device; not certified; not a patient-treatment product.",
+      "POLICY_OPEN,advisor,fd=-1,errno=1,mode=0000,fstat_ok=0,message=Operation not permitted,Not a medical device; not certified; not a patient-treatment product.",
+      "POLICY_RESULT,control_ok=1,advisor_denied=1,permissions=control_fstat,Not a medical device; not certified; not a patient-treatment product."
+    ]
+  },
+  "matrix_pass": true,
+  "ai_label": "Not used; native profiler, no trained model",
+  "judge_summary": {
+    "run_id": "acceptance-r01-planner-none-0",
+    "baseline_id": "acceptance-r00-baseline-none-0",
+    "baseline_s": 7.990243749,
+    "planner_s": 2.959989901,
+    "improvement_percent": 62.95494863507198,
+    "legal_cycle_time_win": true
+  }
+}

@@ -1,0 +1,23 @@
+# Build artefacts
+app/sl
+app/sl-baseline
+app/test-*
+*.o
+__pycache__/
+*.pyc
+
+# QNX image output (proprietary IFS/disk; rebuild locally with licensed SDP)
+images/split-loop/output/
+images/split-loop/local/misc_files/
+images/split-loop/.run.lock
+images/split-loop/local/options
+
+# Fresh evidence runs
+reports/
+*.log
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
