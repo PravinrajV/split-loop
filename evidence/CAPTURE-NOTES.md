@@ -38,14 +38,8 @@ Failed and exploratory takes are kept in `../work/failed-takes/`. explore-00/01/
 
 Each `RUN_ID=` line is printed by the guest shell itself and shown in the schematic header. The run ids are therefore visible in both the shell and the schematic.
 
-Host commands:
-```
-cd <split-loop-repo-root>
-python3 <capture driver; not shipped in this package> live-session-02 proof/demo-v2/work/session.json
-.venv-capture/bin/python proof/demo-v2/render/render_session.py proof/demo-v2/raw/live-session-02.cast proof/demo-v2/raw/live-session-02-terminal-and-live-schematic.mp4
-.venv-capture/bin/python proof/demo-v2/render/render_race.py proof/demo-v2/raw/race-r01-vs-r00-replay.mp4
-```
-QEMU: `/usr/bin/qemu-system-x86_64 -accel tcg -cpu max -smp 1 -m 512M` with the same disposable `images/split-loop` IFS/disk as acceptance (hashes in meta.json). Nothing was rebuilt.
+Capture/render scripts and mp4/cast files are kept in the working tree under `proof/demo-v2/` and are not part of this public package. QEMU argv matched acceptance: `qemu-system-x86_64 -accel tcg -cpu max -smp 1 -m 512M` on the same disposable IFS/disk (hashes in the working-tree meta.json). Nothing was rebuilt for the live take.
+
 
 ## Live numbers vs acceptance.json (live values are from this take, never substituted)
 
