@@ -166,6 +166,17 @@ Resource-manager isolation, an untrusted planner, a FIFO actuator loop, a watchd
 
 What we measured here, and lead with: a named cassette transfer with a frozen cycle-time metric, message-freshness reason codes (stale / replay / expired), a same-image naive-vs-isolated hang A/B with raw samples, and an OS policy denial with world-mode 0666 on `/dev/joint`. Their screens, figures, and reported microsecond numbers are not used.
 
+## Optional offline UI
+
+`ui/standalone.html` is not shipped in this package (it embeds full sample arrays). To rebuild it from a full acceptance report that still has samples:
+
+```bash
+# copy full reports/acceptance.json into reports/ first, then:
+python3 ui/build-standalone.py
+```
+
+Live UI: `python3 ui/server.py` after `./build.sh`.
+
 ## License
 
 MIT License — Copyright (c) 2026 Pravinraj Vincent. See `LICENSE`.
