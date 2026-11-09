@@ -7,7 +7,7 @@ A checkable laboratory cassette transfer on **QNX SDP 8.0** under **QEMU x86_64 
 Entrant: **Pravinraj Vincent**, independent developer (Sunbury, Ohio). Individual submission to the QNX Global Hackathon 2026, **Robotics & Medical**.
 
 - **Repository:** https://github.com/PravinrajV/split-loop
-- **Demo video:** [YOUTUBE_URL]
+- **Demo video:** https://www.youtube.com/watch?v=CMnwOWsutzI
 
 
 ## The ten-second number
